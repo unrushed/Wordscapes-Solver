@@ -17,8 +17,8 @@ public class WordScapesSolver {
         int numberOfLetters = i.nextInt();
 
         while(input.hasNext()){
-            String strTemp = input.nextLine().toLowerCase();
-            if(isGood(lettersUsed, strTemp, numberOfLetters)){
+            String strTemp = input.nextLine();
+            if(isGood(lettersUsed, strTemp.toLowerCase, numberOfLetters)){
                 System.out.println(strTemp);
             }
         }
