@@ -7,14 +7,18 @@ import java.util.Scanner;
 
 public class WordScapesSolver {
     public static void main(String[] args) throws Exception{
+        // scanners
         Scanner i = new Scanner(System.in);
+        /* 
+        If you would like to use another dictionary, change the "english3.txt" with another dictionary or text file.
+        */
         Scanner input = new Scanner(new FileReader("english3.txt"));
 
         System.out.print("Enter the given letters as a “word” with repetitions: ");
-        String lettersUsed = i.nextLine().toLowerCase();
+        String lettersUsed = i.nextLine().toLowerCase(); // saves the letters possble with no spaces
 
         System.out.print("Enter the length of the blank(number of characters int the desired word): ");
-        int numberOfLetters = i.nextInt();
+        int numberOfLetters = i.nextInt(); // how many letters do you need in the word
 
         while(input.hasNext()){
             String strTemp = input.nextLine();
