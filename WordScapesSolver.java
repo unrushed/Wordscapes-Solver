@@ -1,5 +1,6 @@
 /*
  * Made By unrushed
+ * https://github.com/unrushed
  */
 
 import java.io.FileReader;
@@ -10,7 +11,7 @@ public class WordScapesSolver {
         // scanners
         Scanner i = new Scanner(System.in);
         /* 
-        If you would like to use another dictionary, change the "english3.txt" with another dictionary or text file.
+        * If you would like to use another dictionary, change the "english3.txt" with another dictionary or text file.
         */
         Scanner input = new Scanner(new FileReader("english3.txt"));
 
@@ -20,8 +21,12 @@ public class WordScapesSolver {
         System.out.print("Enter the length of the blank(number of characters int the desired word): ");
         int numberOfLetters = i.nextInt(); // how many letters do you need in the word
 
+
+        /*
+        * Reads from the dictionary text file.
+        */
         while(input.hasNext()){
-            String strTemp = input.nextLine();
+            String strTemp = input.nextLine(); // each word from dictionary
             if(isGood(lettersUsed, strTemp.toLowerCase, numberOfLetters)){
                 System.out.println(strTemp);
             }
@@ -29,7 +34,11 @@ public class WordScapesSolver {
 
         input.close();
     }
-
+    
+    /*
+    * Checks whether the word from dictionary full fills the requirements for the desired word.
+    */
+    
     public static boolean isGood(String lettersGood, String dictionaryWord, int numberOfLetters){
         if((dictionaryWord.length() == numberOfLetters)) {
             StringBuilder temp = new StringBuilder(lettersGood);
