@@ -10,9 +10,9 @@ public class WordScapesSolver {
     public static void main(String[] args) throws Exception{
         // scanners
         Scanner i = new Scanner(System.in);
-        /* 
-        * If you would like to use another dictionary, change the "english3.txt" with another dictionary or text file.
-        */
+        /*
+         * If you would like to use another dictionary, change the "english3.txt" with another dictionary or text file.
+         */
         Scanner input = new Scanner(new FileReader("english3.txt"));
 
         System.out.print("Enter the given letters as a “word” with repetitions: ");
@@ -23,28 +23,29 @@ public class WordScapesSolver {
 
 
         /*
-        * Reads from the dictionary text file.
-        */
+         * Reads from the dictionary text file.
+         */
         while(input.hasNext()){
             String strTemp = input.nextLine(); // each word from dictionary
-            if(isGood(lettersUsed, strTemp.toLowerCase, numberOfLetters)){
+            if(isGood(lettersUsed, strTemp.toLowerCase(), numberOfLetters)){
                 System.out.println(strTemp);
             }
         }
 
         input.close();
     }
-    
+
     /*
-    * Checks whether the word from dictionary full fills the requirements for the desired word.
-    */
-    
+     * Checks whether the word from dictionary full fills the requirements for the desired word.
+     */
+
     public static boolean isGood(String lettersGood, String dictionaryWord, int numberOfLetters){
         if((dictionaryWord.length() == numberOfLetters)) {
             StringBuilder temp = new StringBuilder(lettersGood);
             for (int i = 0; i < dictionaryWord.length(); i++) {
-                if (temp.indexOf(String.valueOf(dictionaryWord.charAt(i))) != -1) {
-                    temp = temp.deleteCharAt(temp.indexOf(String.valueOf(dictionaryWord.charAt(i))));
+                int test = temp.indexOf(String.valueOf(dictionaryWord.charAt(i)));
+                if (test != -1) {
+                    temp.deleteCharAt(test);
                 } else {
                     return false;
                 }
